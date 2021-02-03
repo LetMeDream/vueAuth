@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="about container-fluid" style='min-height:calc( 100vh - 100px )'>
     <h1>This is an about page</h1>
   </div>
 </template>
@@ -7,7 +7,7 @@
 
 <script>
 import firebase from 'firebase'
-import {  useRouter } from 'vue-router'
+import {  useRouter, useRoute } from 'vue-router'
 
 export default {
 
@@ -22,6 +22,12 @@ export default {
         }
 
 
+    },
+    mounted: function () {
+        // `this` points to the vm instance
+        const route = useRoute();
+        let path = route.path;
+        console.log('From ABOUT, path is: ' + path);
     }
 
 }

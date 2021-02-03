@@ -67,6 +67,12 @@ export default {
             register, email, password, rute
         }
 
+    },
+    mounted: function () {
+        // `this` points to the vm instance
+        const route = useRoute();
+        let path = route.path;
+        console.log('a is: ' + path);
     }
 }
 </script>

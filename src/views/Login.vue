@@ -46,17 +46,15 @@ export default {
         }
 
         onBeforeMount(()=>{
+            const user = firebase.auth().currentUser;
+            if(user){
 
-            firebase.auth().onAuthStateChanged((user)=>{
-                if(user){
-
-                    if((route.path == '/login')||(route.path == '/register')){
-                        router.replace('/');
-                        alert('You have already logged-in');
-                    }
-
+                if((route.path == '/login')||(route.path == '/register')){
+                    router.replace('/');
+                    alert('You have already logged-in');
                 }
-            })
+
+            }
         });
 
         return{

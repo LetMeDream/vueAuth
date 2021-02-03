@@ -9,10 +9,10 @@
 
     <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
       <ul>
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/about">About</router-link> </li>
-        <li :class="{ 'is-active': rute == '/login' ? true : false }" ><router-link :class='{invisible : user}' to="/login">Login</router-link></li>
-        <li :class="{ 'is-active': rute == '/register' ? true : false }"><router-link to="/register">Register</router-link></li>
+        <li :class="{ 'is-active': route.path == '/' ? true : false  }"><router-link to="/">Home</router-link></li>
+        <li :class="{ 'is-active': route.path == '/about' ? true : false  }"><router-link to="/about">About</router-link> </li>
+        <li :class="{ 'is-active': route.path == '/login' ? true : false }" ><router-link :class='{invisible : user}' to="/login">Login</router-link></li>
+        <li :class="{ 'is-active': route.path == '/register' ? true : false }"><router-link to="/register">Register</router-link></li>
       </ul>
     </nav>
 
@@ -31,7 +31,6 @@ export default {
 
     const router = useRouter();
     const route = useRoute();
-    let rute = route.path;
 
     onBeforeMount(()=>{
 
@@ -49,14 +48,10 @@ export default {
 
         }
       })
-       rute = route.path;
-
 
     });
-
-    console.log(rute);
     return{
-      rute
+      route
     }
 
 

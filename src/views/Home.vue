@@ -1,37 +1,29 @@
 <template>
-  <div class="home">
+  <div class="home container-fluid" style='min-height:calc( 100vh - 100px )'>
     <h1>No place like home</h1>
     <h1>Welcome, {{ name }}</h1>
     <router-link to='/about'>Learn about me</router-link> or... <br>
 
-    <button class='logout' @click='logout'>Logout</button>
+    <button class='button is-small' @click='logout'>Logout</button>
   </div>
 </template>
 
 <script>
   import { onBeforeMount , ref } from 'vue';
   import firebase from 'firebase';
-  import { useRouter } from 'vue-router';
+  import { useRoute, useRouter} from 'vue-router';
 
   export default {
 
     setup () {
       const name = ref('');
 
-      const router = useRouter();
 
-      const counter = ref(0);
-      /* If someone's logged in; who is it? */
-      const user = firebase.auth().currentUser;
-      if (!user){
-        router.replace('/login');
-        alert("Log in first");
-        counter.value++;
-        console.log(counter.value)
-      }
 
       onBeforeMount(() => {
 
+        /* If someone's logged in; who is it? */
+        const user = firebase.auth().currentUser;
 
 
         if (user){
@@ -53,7 +45,24 @@
 
     return {name,logout}
 
-  }
+    },
+
+    mounted(){
+
+      /* If someone's logged in; who is it? */
+      const user = firebase.auth().currentUser;
+      const router = useRouter();
+      if ((!user)){
+
+        router.replace('/login');
+      }
+
+      // `this` points to the vm instance
+      const route = useRoute();
+      let path = route.path;
+      console.log('From HOME, path is: ' + path);
+
+    }
 
   }
 
