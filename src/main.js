@@ -14,6 +14,18 @@ const firebaseConfig = {
   appId: "1:479795575173:web:b37f1a3a815beccceaecec"
 };
 
-firebase.initializeApp(firebaseConfig);
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+/* Up until now, firebase was just being our authentication back end */
+/* But from now on it will serve also as our database for out CRUDs using */
+/* firestore() */
+const db = firebaseApp.firestore();
+const remindersCollection = db.collection('reminders');
+
+/* Now, lets _Create_ */
+export const create = detail => {
+  return remindersCollection.add(detail);
+}
+
+
 
 createApp(App).use(router).mount('#app');
