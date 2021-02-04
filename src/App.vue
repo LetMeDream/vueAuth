@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <link rel="stylesheet" href="https://jenil.github.io/bulmaswatch/materia/bulmaswatch.min.css">
+
     <!-- <div id="nav">
       |
       |
@@ -7,9 +9,11 @@
       <router-link :class='{invisible : user}' to="/register">Register</router-link>
     </div> -->
 
-    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+    <nav class="breadcrumb is-centered pt-5" aria-label="breadcrumbs">
       <ul>
-        <li :class="{ 'is-active': route.path == '/' ? true : false  }"><router-link to="/">Home</router-link></li>
+        <li :class="{ 'is-active': route.path == '/' ? true : false  }"><router-link to="/">
+            Home
+        </router-link></li>
         <li :class="{ 'is-active': route.path == '/about' ? true : false  }"><router-link to="/about">About</router-link> </li>
         <li :class="{ 'is-active': route.path == '/login' ? true : false }" ><router-link :class='{invisible : user}' to="/login">Login</router-link></li>
         <li :class="{ 'is-active': route.path == '/register' ? true : false }"><router-link to="/register">Register</router-link></li>
@@ -24,6 +28,8 @@
 import { useRoute, useRouter } from 'vue-router'
 import { onBeforeMount } from 'vue'
 import firebase from 'firebase'
+
+
 
 export default {
 

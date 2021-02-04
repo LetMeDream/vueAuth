@@ -6,7 +6,15 @@
                 <form @submit.prevent='login'>
 
                     <input v-model='email' class='input is-small' type="email" autocomplete="off" placeholder="email">
-                    <input v-model='pass' class='input is-small block' type="password" placeholder='password'>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-small" type="email" placeholder="Email">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </div>
 
                     <input class='button is-outlined is-small block' type="submit" value="Login">
 
