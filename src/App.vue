@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <link rel="stylesheet" href="https://jenil.github.io/bulmaswatch/materia/bulmaswatch.min.css">
+    <link href="https://jenil.github.io/bulmaswatch/materia/bulmaswatch.min.css">
 
     <nav class="breadcrumb is-centered pt-5" aria-label="breadcrumbs">
       <ul>
