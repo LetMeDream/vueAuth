@@ -5,15 +5,22 @@
                 <h1 class='block'>Let us login</h1>
                 <form @submit.prevent='login'>
 
-                    <input v-model='email' class='input is-small' type="email" autocomplete="off" placeholder="email">
-                    <div class="control has-icons-left has-icons-right">
-                        <input class="input is-small" type="email" placeholder="Email">
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-envelope"></i>
-                        </span>
-                        <span class="icon is-small is-right">
-                            <i class="fas fa-check"></i>
-                        </span>
+                    <div class="field">
+                        <div class="control has-icons-left">
+                            <input v-model='email' class="input is-small" type="email" placeholder="Email">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control has-icons-left block">
+                            <input v-model='pass' class="input is-small" type="password" placeholder="Password">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </div>
                     </div>
 
                     <input class='button is-outlined is-small block' type="submit" value="Login">
@@ -48,7 +55,10 @@ export default {
 
             firebase.auth()
                 .signInWithEmailAndPassword(email.value, pass.value)
-                .then(data => console.log(data))
+                .then((data) => {
+                    console.log(data);
+                    router.replace('/');
+                    })
                 .catch( err => alert(err.message))
 
         }

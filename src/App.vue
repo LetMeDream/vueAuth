@@ -2,21 +2,32 @@
   <div id="app">
     <link rel="stylesheet" href="https://jenil.github.io/bulmaswatch/materia/bulmaswatch.min.css">
 
-    <!-- <div id="nav">
-      |
-      |
-       |
-      <router-link :class='{invisible : user}' to="/register">Register</router-link>
-    </div> -->
-
     <nav class="breadcrumb is-centered pt-5" aria-label="breadcrumbs">
       <ul>
         <li :class="{ 'is-active': route.path == '/' ? true : false  }"><router-link to="/">
-            Home
+          <span class="icon is-small">
+            <i class="fas fa-home"></i>
+          </span>
+          Home
         </router-link></li>
-        <li :class="{ 'is-active': route.path == '/about' ? true : false  }"><router-link to="/about">About</router-link> </li>
-        <li :class="{ 'is-active': route.path == '/login' ? true : false }" ><router-link :class='{invisible : user}' to="/login">Login</router-link></li>
-        <li :class="{ 'is-active': route.path == '/register' ? true : false }"><router-link to="/register">Register</router-link></li>
+        <li :class="{ 'is-active': route.path == '/about' ? true : false }"><router-link to="/about">
+          <span class="icon is-small">
+            <i class="fas fa-barcode"></i>
+          </span>
+          About
+        </router-link> </li>
+        <li :class="{ 'is-active': route.path == '/login' ? true : false }" ><router-link :class='{invisible : user}' to="/login">
+          <span class="icon is-small">
+            <i class="fas fa-user-alt"></i>
+          </span>
+          Login
+        </router-link></li>
+        <li :class="{ 'is-active': route.path == '/register' ? true : false }"><router-link to="/register">
+          <span class="icon is-small">
+            <i class="fas fa-plus"></i>
+          </span>
+          Register
+        </router-link></li>
       </ul>
     </nav>
 
@@ -76,7 +87,7 @@ export default {
 
 <style lang="scss">
 .invisible{
-  display:none;
+  display:none !important;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

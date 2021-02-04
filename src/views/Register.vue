@@ -7,8 +7,19 @@
 
                 <form @submit.prevent='register'>
 
-                    <input class='input is-small' placeholder='email' type="email" v-model='email'>
-                    <input class='input is-small block' placeholder='password' type="password" v-model='password'>
+                    <div class="control has-icons-left">
+                        <input v-model='email' class="input is-small" type="email" placeholder="Email">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </div>
+
+                    <div class="control has-icons-left block">
+                        <input v-model='password' class="input is-small" type="password" placeholder="Password">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </div>
 
                     <input class='button is-outlined is-small block' type="submit" value="Register">
 
