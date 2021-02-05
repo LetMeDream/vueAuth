@@ -1,34 +1,57 @@
 <template>
   <div id="app">
     <link href="https://jenil.github.io/bulmaswatch/materia/bulmaswatch.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
-    <nav class="breadcrumb is-centered pt-5" aria-label="breadcrumbs">
-      <ul>
-        <li :class="{ 'is-active': route.path == '/' ? true : false  }"><router-link to="/">
-          <span class="icon is-small">
-            <i class="fas fa-home"></i>
-          </span>
-          Home
-        </router-link></li>
-        <li :class="{ 'is-active': route.path == '/about' ? true : false }"><router-link to="/about">
-          <span class="icon is-small">
-            <i class="fas fa-barcode"></i>
-          </span>
-          About
-        </router-link> </li>
-        <li :class="{ 'is-active': route.path == '/login' ? true : false }" ><router-link :class='{invisible : user}' to="/login">
-          <span class="icon is-small">
-            <i class="fas fa-user-alt"></i>
-          </span>
-          Login
-        </router-link></li>
-        <li :class="{ 'is-active': route.path == '/register' ? true : false }"><router-link to="/register">
-          <span class="icon is-small">
-            <i class="fas fa-plus"></i>
-          </span>
-          Register
-        </router-link></li>
-      </ul>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+          <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <div class="navbar-start">
+            <a class="navbar-item">
+              <router-link to="/">
+                Home
+              </router-link>
+            </a>
+
+            <a class="navbar-item">
+              <router-link to="/about">
+                About
+              </router-link>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="navbar-end" :class='invisibleObject' >
+        <div class="navbar-item">
+          <div class="buttons">
+              <router-link class='button is-primary' to="/register">
+                <strong>Sign up</strong>
+              </router-link>
+
+              <router-link class="button is-light" to="/login">
+                <strong>Log in</strong>
+              </router-link>
+          </div>
+        </div>
+      </div>
+
     </nav>
 
     <router-view/>
@@ -67,6 +90,8 @@ export default {
       })
 
     });
+
+
     return{
       route
     }
@@ -75,10 +100,24 @@ export default {
 
   },
   mounted: function () {
-    // `this` points to the vm instance
     const route = useRoute();
     let path = route.path;
     console.log('a is: ' + path);
+  },
+
+  computed:  {
+
+    invisibleObject(){
+      const route = useRoute();
+      let path = route.path;
+      return{
+
+        visible : path == '/login' || path == '/register',
+        invisible : path == '/' || path == '/about'
+
+      }
+    }
+
   }
 
 
@@ -86,9 +125,13 @@ export default {
 </script>
 
 <style lang="scss">
+*{
+  font-family: 'Roboto', sans-serif;
+}
 .invisible{
   display:none !important;
 }
+.visible{display: block im !important;}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -1,13 +1,13 @@
 <template>
-    <section class="login container-fluid" style='min-height:calc( 100vh - 100px )'>
-        <div  class="columns ">
-            <div class="column is-4 is-offset-4">
-                <h1 class='block'>Let us login</h1>
+    <section class="login container-fluid">
+        <div  class="center ">
+            <div class="form-container">
+                <h1 class='block' style='text-align:left'>Let us login</h1>
                 <form @submit.prevent='login'>
 
                     <div class="field">
                         <div class="control has-icons-left">
-                            <input v-model='email' class="input is-small" type="email" placeholder="Email">
+                            <input v-model='email' class="input" type="email" placeholder="Email">
                             <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>
                             </span>
@@ -16,7 +16,7 @@
 
                     <div class="field">
                         <div class="control has-icons-left block">
-                            <input v-model='pass' class="input is-small" type="password" placeholder="Password">
+                            <input v-model='pass' class="input" type="password" placeholder="Password">
                             <span class="icon is-small is-left">
                                 <i class="fas fa-lock"></i>
                             </span>
@@ -86,6 +86,15 @@ export default {
 
 <style>
 
-
+    .center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: calc( 100vh - 56px );
+    }
+    .center .form-container{
+        position:relative;
+        top:-26px;
+    }
 
 </style>

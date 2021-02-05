@@ -1,14 +1,14 @@
 <template>
-    <section class="register container-fluid" style='min-height:calc( 100vh - 100px )'>
-        <div class="columns" >
-            <div class="column is-4 is-offset-4">
+    <section class="register container-fluid" style='min-height:calc( 100vh - 56px )'>
+        <div class="center" >
+            <div class="form-container">
 
-                <h1 class='block'>Let us register</h1>
+                <h1 class='block' style=text-align:left>Let us register</h1>
 
                 <form @submit.prevent='register'>
                     <div class="field">
                         <div class="control has-icons-left">
-                            <input v-model='email' class="input is-small" type="email" placeholder="Email">
+                            <input v-model='email' class="input" style=text-align:left type="email" placeholder="Email">
                             <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>
                             </span>
@@ -17,7 +17,7 @@
 
                     <div class="field">
                         <div class="control has-icons-left block">
-                            <input v-model='password' class="input is-small" type="password" placeholder="Password">
+                            <input v-model='password' class="input" style=text-align:left type="password" placeholder="Password">
                             <span class="icon is-small is-left">
                                 <i class="fas fa-lock"></i>
                             </span>
@@ -92,5 +92,7 @@ export default {
 </script>
 
 <style>
+    .center{
 
+    }
 </style>
